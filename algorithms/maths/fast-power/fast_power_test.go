@@ -3,6 +3,8 @@ package fast_power
 import (
 	"math"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestFastPower(t *testing.T) {
@@ -15,6 +17,26 @@ func TestFastPower(t *testing.T) {
 			t.Error()
 		}
 	}
+}
+
+func TestFastPowerEquiClass0(t *testing.T) {
+	a := uint32(2)
+	exp := 0
+	expected_response := uint32(1)
+
+	result, _ := fast_power(a, exp)
+
+	assert.Equal(t, expected_response, result, "Every number to the power of 0 must be 1")
+}
+
+func TestSlowPowerEquiClass0(t *testing.T) {
+	a := uint32(2)
+	exp := 0
+	expected_response := uint32(1)
+
+	result, _ := slow_power(a, exp)
+
+	assert.Equal(t, expected_response, result, "Every number to the power of 0 must be 1")
 }
 
 func TestSlowPower(t *testing.T) {
