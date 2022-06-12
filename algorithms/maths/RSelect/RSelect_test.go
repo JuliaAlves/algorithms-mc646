@@ -49,17 +49,6 @@ func TestLimitValueMinus1(t *testing.T) {
 	assert.Equal(t, expected_response, result, "Element of order -1 should be the smallest element")
 }
 
-func TestLimitValue1(t *testing.T) {
-	arr := []int{1, 2, 3, 4, 5}
-	len := 5
-	k_element := 1
-	expected_response := 2
-
-	result := RSelect(arr, len, k_element)
-
-	assert.Equal(t, expected_response, result, "Element of order 1 should be the second smallest element")
-}
-
 func TestLimitValueNMinus1(t *testing.T) {
 	arr := []int{1, 2, 3, 4, 5}
 	len := 5

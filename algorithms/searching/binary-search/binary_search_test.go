@@ -52,6 +52,14 @@ func TestFindDeepestElement(t *testing.T) {
 	assert.Equal(t, expected_response, result, "The deepest element could not be found")
 }
 
+func TestFindEasiestElement(t *testing.T) {
+	sorted := []int{1, 2, 3, 4, 5}
+	result := search(sorted, 3)
+	expected_response := 2
+
+	assert.Equal(t, expected_response, result, "The easiest element could not be found")
+}
+
 func TestDoNotFindUnexistingElement(t *testing.T) {
 	sorted := []int{1, 2, 3, 4, 5}
 	result := search(sorted, 6)
