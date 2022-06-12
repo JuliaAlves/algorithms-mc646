@@ -39,6 +39,24 @@ func TestSlowPowerEquiClass0(t *testing.T) {
 	assert.Equal(t, expected_response, result, "Every number to the power of 0 must be 1")
 }
 
+func TestFastPowerEquiClassNegative(t *testing.T) {
+	a := uint32(2)
+	exp := -1
+
+	_, err := fast_power(a, exp)
+
+	assert.Error(t, err, "Fast power should error on negative input")
+}
+
+func TestSlowPowerEquiClassNegative(t *testing.T) {
+	a := uint32(2)
+	exp := -1
+
+	_, err := slow_power(a, exp)
+
+	assert.Error(t, err, "Slow power should error on negative input")
+}
+
 func TestSlowPower(t *testing.T) {
 	a := uint32(2)
 

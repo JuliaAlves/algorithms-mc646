@@ -29,42 +29,32 @@ func TestSearch(t *testing.T) {
 }
 
 func TestFindFirstElement(t *testing.T) {
-	sorted := make([]int, 100)
-
-	for i := 0; i < 100; i++ {
-		sorted[i] = 2 * i
-	}
-
-	result := search(sorted, 0)
-
+	sorted := []int{1, 2, 3, 4, 5}
+	result := search(sorted, 1)
 	expected_response := 0
 
 	assert.Equal(t, expected_response, result, "The left-most element could not be found")
 }
 
 func TestFindLastElement(t *testing.T) {
-	sorted := make([]int, 100)
-
-	for i := 0; i < 100; i++ {
-		sorted[i] = 2 * i
-	}
-
-	result := search(sorted, 198)
-
-	expected_response := 99
+	sorted := []int{1, 2, 3, 4, 5}
+	result := search(sorted, 5)
+	expected_response := 4
 
 	assert.Equal(t, expected_response, result, "The right-most element could not be found")
 }
 
+func TestFindDeepestElement(t *testing.T) {
+	sorted := []int{1, 2, 3, 4, 5}
+	result := search(sorted, 2)
+	expected_response := 1
+
+	assert.Equal(t, expected_response, result, "The deepest element could not be found")
+}
+
 func TestDoNotFindUnexistingElement(t *testing.T) {
-	sorted := make([]int, 100)
-
-	for i := 0; i < 100; i++ {
-		sorted[i] = 2 * i
-	}
-
-	result := search(sorted, 200)
-
+	sorted := []int{1, 2, 3, 4, 5}
+	result := search(sorted, 6)
 	expected_response := -1
 
 	assert.Equal(t, expected_response, result, "The unexisting element was found")
